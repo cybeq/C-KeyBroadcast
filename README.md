@@ -5,7 +5,7 @@
 ## Can be customized to any api endpoint with simple change
 #### :warning: Attention. This project is for scientific purposes only. Contains native C++ language functions to track buttons pressed within the system. It is designed to run locally on its own test API. The project is intentionally limited in the number of characters downloaded and not perfected to prevent misuse of the source code. 
 ### Each time the application starts, it turns on the console and informs about sending buttons to the API
-### :space_invader: Before run, comment out the line responsible for boot autorun if you want to skip adding an app to registry 
+### :space_invader: If you want to skip adding this app to registry comment out the line responsible for running the app with each system's boot.
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
