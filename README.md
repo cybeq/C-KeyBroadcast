@@ -23,7 +23,8 @@
 serverName = "localhost";
 const int serverPort = 3000;
 ````
-
+#### There is socket in .\node\review.html to look at live key broadcast
+#### Logs are being saved to ${date}.txt
 
 # RUN
 ````
